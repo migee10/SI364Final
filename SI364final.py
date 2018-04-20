@@ -41,10 +41,11 @@ manager.add_command('db', MigrateCommand)
 app = Flask(__name__)
 app.debug = True
 app.config['SECRET_KEY'] = 'passpasspasspassword'
-
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/deletesoon"
+#app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/deletesoon"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL') or "postgresql://localhost/deletesoon"
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['HEROKU_ON'] = os.environ.get('HEROKU')
 
 ## Statements for db setup (and manager setup if using Manager)
 db = SQLAlchemy(app)
@@ -221,14 +222,21 @@ def get_or_create_list(place_name):
     db.session.commit()
     return listname
 
-# def apiuse(business):
-#     baseurl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.7749295,-122.4194155&radius=900&types=food&name="+business+"&key="+API_KEY
-#     req = requests.get(baseurl)
-#     print(req)
-#     return req.json()['results'][0]['name']
-#     # name = (data_son['results'][0]['name'])
-#     # rating = (data_son['results'][0]['rating'])
-#     # location = (data_son['results'][0]['vicinity'])
+def get_google_data(place):
+    baseurl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.7749295,-122.4194155&radius=900&types=food&name="+place+"&key="+API_KEY
+    params = {'b': place}
+    response = requests.get(baseurl, params=params)
+    data = json.loads(response.text)
+
+    name_restaurant = {}
+    for x in data['results']:
+        name_restaurant = (x['0']['name'])
+
+    print(name_restaurant)
+    return (name_restaurant)
+    # name = (data_son['results'][0]['name'])
+    # rating = (data_son['results'][0]['rating'])
+    # location = (data_son['results'][0]['vicinity'])
 
 
 #######################
@@ -271,6 +279,7 @@ def saved_list():
     form=SaveForm()
     if form.validate_on_submit():
         place = form.your_places.data
+
         saves = get_or_create_list(place)
         # new = SavedList(place_name=place)
         # # db.session.add(new)
