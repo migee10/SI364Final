@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Place's You Have Recently Searched:</h1>
+<h3> These are the restaurants you have searched: </h3>
+<br>
+
+{% for x in previous %}
+    <p>{{ x }}</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,1 @@
+The goal of my final project is to create an app using the Google Places Web API that will let users search for Restaurants and Businesses through a key word, save businesses and restaurants, view ratings of businesses, and the address of the business. After signing in Users will be able to submit their own reviews of the business as well as rate it into a database. 

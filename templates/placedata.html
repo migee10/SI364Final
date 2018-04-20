@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1> You searched for</h1>
+    <h2>Name of Restaurant {{ data['results'][0]['name'] }}</h2>
+    <h3>Rating : {{ data['results'][0]['rating'] }}</h3>
+    <h3>Location : {{ data['results'][0]['vicinity'] }}</h3>
+    <br>
+    <h2>Name of Restaurant {{ data['results'][1]['name'] }}</h2>
+    <h3>Rating : {{ data['results'][1]['rating'] }}</h3>
+    <h3>Location : {{ data['results'][1]['vicinity'] }}</h3>
+
+
+
+
+{% endblock %}

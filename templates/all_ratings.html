@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> All of {{current_user.username}}'s ratings: </h2>
+<ul>
+  {% for x in rating %}
+  <li><strong>{{ x.name }}</strong> <br> <i>{{ x.placename }}</i> <br> Rating: {{ x.rating }} out of 5 stars <br> Pricing: {{ x.price }} <br>Additional Comments: {{x.text_entry}}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

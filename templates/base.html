@@ -1,0 +1,21 @@
+{% block content %}
+
+
+{% endblock %}
+
+<p>------------</p>
+<h3>Navigation</h3>
+<ul>
+    <li><a href="{{ url_for('index')}}"> Go to homepage.</a></li>
+    <li><a href="{{ url_for('rating')}}"> Submit a rating.</a></li>
+    <li><a href="{{ url_for('save')}}"> Check-in to a Restaurant.</a></li>
+    <li><a href="{{ url_for('ratings')}}"> See All Ratings.</a></li>
+    <li><a href="{{ url_for('all_places')}}">Your Checked-in Places.</a></li>
+    <li><a href="{{ url_for('previously_searched')}}">Search History.</a></li>
+    <li><a href="{{ url_for('search')}}">Search.</a></li>
+
+<h4> User Registration </h4>
+    <li><a href="{{ url_for('logout')}}">Logout.</a></li>
+    <li><a href="{{ url_for('login')}}">Login.</a></li>
+    <li><a href="{{ url_for('register')}}"> Register</a></li>
+</ul>

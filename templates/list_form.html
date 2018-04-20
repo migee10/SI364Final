@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+<body>
+<form action="http://localhost:5000/saved_list" method = "POST">
+  {{ form.hidden_tag() }}
+<!--   {% for message in get_flashed_messages() %}
+  {{ message }}
+  {% endfor %} -->
+
+<h2>Check-In Form</h2>
+<h3> Enter the name of a restaurants you have been to </h3>
+
+<h4>{{ form.your_places.label }}: {{ form.your_places() }}</h4>
+{{ form.submit() }}
+</form>
+</body>
+</html>
+
+{% endblock %}

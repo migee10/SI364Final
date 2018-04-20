@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+<!-- <form action="{{url_for('search')}}" method="POST"> -->
+<h2> Search for a Restaurant in San Francisco </h2>
+<p> Type in a key word to search for a related restaurant (ex. Taco, Burger, Ice Cream)</p>
+<form method = "POST" action="http://localhost:5000/searchdata">
+	{{ form.hidden_tag() }}
+	{{ form.business.label }} {{ form.business() }}
+  <br>
+	{{ form.submit() }}
+</form>
+</div>
+
+{% endblock %}
+
+{% block footer %} <center><em>homepage</center></em> {% endblock %}

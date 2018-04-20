@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+  {% for x in rating %}
+  <li>{{ x.text_entry }} <br> {{ x.reviewer_name }} reviewed {{ x.placename }} <br> {{ x.rating }} out of 5 stars </li>
+  {% endfor %}
+</ul>
+
+<div>
+  <a href="{{ url_for('rating') }}">Enter another review!</a>
+</div>
+
+{% endblock %}

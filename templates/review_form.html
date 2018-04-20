@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h2> Welcome, fill out the form below to rate a restaurant: </h2>
+
+<form method="POST">
+    {{ form.placename.label() }}{{ form.placename() }}<br>
+    {{ form.rating.label() }}{{ form.rating() }}<br>
+    {{ form.price.label() }}{{ form.price() }}<br>
+    {{ form.text_entry.label() }}{{ form.text_entry() }}<br>
+
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+{% for message in get_flashed_messages() %}
+    <strong>{{ message }}</strong>
+{% endfor %}
+
+{% endblock %}
