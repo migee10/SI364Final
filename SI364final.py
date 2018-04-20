@@ -238,7 +238,7 @@ def get_google_data(place):
     # location = (data_son['results'][0]['vicinity'])
 
 def make_shell_context():
-    return dict( app=app, db=db, Song=Song, Artist=Artist, Album=Album)
+    return dict( app=app, db=db, SavedList=SavedList, Ratings=Ratings, SearchTerm=SearchTerm, Places=Places, User=User)
 # Add function use to manager
 manager.add_command("shell", Shell(make_context=make_shell_context))
 
@@ -269,7 +269,7 @@ def index():
     return render_template('index.html', form=form)
 
 
-
+#Modeled after
 @app.route('/save_place')
 @login_required
 def save():
@@ -297,6 +297,7 @@ def all_places():
     places = SavedList.query.all()
     return render_template('saved_list.html', places=places, form=form)
 
+#/list /update and /delete modeled after Week 10 discussion
 @app.route('/list/<option>', methods=["GET","POST"])
 @login_required
 def new_list(option):
@@ -333,6 +334,7 @@ def previously_searched():
     previous = Places.query.all()
     return render_template('previously_searched.html', previous=previous)
 
+#modeled after H4
 @app.route('/login',methods=["GET","POST"])
 def login():
     form = LoginForm()
