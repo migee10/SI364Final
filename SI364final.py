@@ -5,7 +5,11 @@
 ## Import statements
 # Import statements
 ## Import statements
+
 import os
+import json
+import datetime
+import requests
 from flask import Flask, render_template, session, redirect, url_for, flash, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, FileField, PasswordField, BooleanField, SelectMultipleField, ValidationError, RadioField, IntegerField
@@ -14,12 +18,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 from requests.exceptions import HTTPError
-import requests
 import json
-import datetime
-from requests_oauthlib import OAuth2Session
 
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 # Imports for login management
 from flask_login import LoginManager, login_required, logout_user, login_user, UserMixin, current_user
@@ -70,15 +70,14 @@ login_manager.init_app(app) # set up login manager
 
 #ASSOCIATION TABLE
 #places can have many ratings, ratings can have many places
-# rating_places = db.Table('rating_places', db.Column('rating_id', db.Integer, db.ForeignKey('restaurant_ratings.id')), db.Column('places_id', db.Integer, db.ForeignKey('places.id')))
-#searches = db.Table('searches',db.Column('location_id',db.Integer, db.ForeignKey('places.id')),db.Column('search_id', db.Integer, db.ForeignKey('searchTerm.id')))
-# collection = db.Table('collection', db.Column('rating_id', db.Integer,db.ForeignKey('restaurant_ratings.id')),db.Column('list_id', db.Integer,db.ForeignKey('list.id')))
+#search term, places
+asso_table = db.Table('asso_table',db.Column('places_id', db.Integer, db.ForeignKey('places.id')), db.Column('sterm_id', db.Integer, db.ForeignKey('searchTerm.id')))
 
-
-# # ##################
+##################
 ##### MODELS #####
 ##################
-class User(UserMixin, db.Model):
+
+class User(db.Model, UserMixin):
     __tablename__ = "User"
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255), unique=True, index=True)
@@ -115,6 +114,7 @@ class SearchTerm(db.Model):
     __tablename__ = 'searchTerm'
     id = db.Column(db.Integer, primary_key=True)
     term = db.Column(db.String(32), unique=True)
+    places = db.relationship('Places', secondary=asso_table, backref=db.backref('places', lazy='dynamic'),lazy='dynamic')
 
     def __repr__(self):
         return "You searched: {}".format(self.term)
