@@ -424,7 +424,7 @@ def rating():
     if len(errors) > 0:
         flash("FORM SUBMISSION FAILED. PLEASE CORRECT AND RE-SUBMIT" + str(errors))
 
-    return render_template('review_form.html',form=form)
+    return render_template('rating_form.html',form=form)
 
 
 @app.route('/reviews')
