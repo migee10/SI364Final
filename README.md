@@ -1,17 +1,13 @@
 Documentation README Requirements
  Create a README.md file for your app that includes the full list of requirements from this page. The ones you have completed should be bolded or checked off. (You bold things in Markdown by using two asterisks, like this: **This text would be bold** and this text would not be)
 
- The README.md file should use markdown formatting and be clear / easy to read.
 
- The README.md file should include a 1-paragraph (brief OK) description of what your application does
  Description: My final project app users the Google Places API, to let users search for restaurants and businesses based off of key terms and phrases such as taco, burger, or pizza. Users will be able submit ratings about restaurants, which will then be stored into a database. Finally, users will also be able to create a list of places they have been to by "Checking In". This app is based off San Francisco, the information produced will all be San Francisco.
 
- The README.md file should include a detailed explanation of how a user can user the running application (e.g. log in and see what, be able to save what, enter what, search for what... Give us examples of data to enter if it's not obviously stated in the app UI!)
-
- The README.md file should include a list of every module that must be installed with pip if it's something you installed that we didn't use in a class session. If there are none, you should note that there are no additional modules to install.
  No additional modules installed.
 
- The README.md file should include a list of all of the routes that exist in the app and the names of the templates each one should render OR, if a route does not render a template, what it returns (e.g. /form -> form.html, like the list we provided in the instructions for HW2 and like you had to on the midterm, or /delete -> deletes a song and redirects to index page, etc).
+Routes:
+
  http://localhost:5000/ --> 'index.html'
  http://localhost:5000/save_place --> 'list_form.html'
  http://localhost:5000/saved_list --> 'list_form.html'
@@ -46,20 +42,20 @@ Documentation README Requirements
 
  - [x] Create a `README.md` file for your app that includes the full list of requirements from this page. The ones you have completed should be bolded or checked off. (You bold things in Markdown by using two asterisks, like this: `**This text would be bold** and this text would not be`)
 
- - [ ] The `README.md` file should use markdown formatting and be clear / easy to read.
+ - [x] The `README.md` file should use markdown formatting and be clear / easy to read.
 
- - [ ] The `README.md` file should include a 1-paragraph (brief OK) description of what your application does
+ - [x] The `README.md` file should include a 1-paragraph (brief OK) description of what your application does
 
- - [ ] The `README.md` file should include a detailed explanation of how a user can user the running application (e.g. log in and see what, be able to save what, enter what, search for what... Give us examples of data to enter if it's not obviously stated in the app UI!)
+ - [x ] The `README.md` file should include a detailed explanation of how a user can user the running application (e.g. log in and see what, be able to save what, enter what, search for what... Give us examples of data to enter if it's not obviously stated in the app UI!)
 
- - [ ] The `README.md` file should include a list of every module that must be installed with `pip` if it's something you installed that we didn't use in a class session. If there are none, you should note that there are no additional modules to install.
+ - [ x] The `README.md` file should include a list of every module that must be installed with `pip` if it's something you installed that we didn't use in a class session. If there are none, you should note that there are no additional modules to install.
 
- - [ ] The `README.md` file should include a list of all of the routes that exist in the app and the names of the templates each one should render OR, if a route does not render a template, what it returns (e.g. `/form` -> `form.html`, like [the list we provided in the instructions for HW2](https://www.dropbox.com/s/3a83ykoz79tqn8r/Screenshot%202018-02-15%2013.27.52.png?dl=0) and like you had to on the midterm, or `/delete -> deletes a song and redirects to index page`, etc).
+ - [ x] The `README.md` file should include a list of all of the routes that exist in the app and the names of the templates each one should render OR, if a route does not render a template, what it returns (e.g. `/form` -> `form.html`, like [the list we provided in the instructions for HW2](https://www.dropbox.com/s/3a83ykoz79tqn8r/Screenshot%202018-02-15%2013.27.52.png?dl=0) and like you had to on the midterm, or `/delete -> deletes a song and redirects to index page`, etc).
 
  ### **Code Requirements**
  ***Note that many of these requirements of things your application must DO or must INCLUDE go together! Note also that*** ***you should read all of the requirements before making your application plan******.***
 
- - [ ] Ensure that your `SI364final.py` file has all the setup (`app.config` values, import statements, code to run the app if that file is run, etc) necessary to run the Flask application, and the application runs correctly on `http://localhost:5000` (and the other routes you set up). **Your main file must be called** `SI364final.py`**, but of course you may include other files if you need.**
+ **Ensure that your `SI364final.py` file has all the setup (`app.config` values, import statements, code to run the app if that file is run, etc) necessary to run the Flask application, and the application runs correctly on `http://localhost:5000` (and the other routes you set up). **Your main file must be called** `SI364final.py`**, but of course you may include other files if you need.
 
  - [ ] A user should be able to load `http://localhost:5000` and see the first page they ought to see on the application.
 
@@ -117,7 +113,7 @@ Documentation README Requirements
 
  - [ ] Include at least two uses of `url_for`. (HINT: Likely you'll need to use this several times, really.)
 
- - [ ] Have at least 5 view functions that are not included with the code we have provided. (But you may have more! *Make sure you include ALL view functions in the app in the documentation and navigation as instructed above.*)
+ - [ ] Have at least 5 view functions that are not included with the code we have provided. (But you may have more! *Make sure you include ALL view functions in the app in the documentation and navigation as instructed above.*)**
 
 
  ## Additional Requirements for additional points -- an app with extra functionality!
