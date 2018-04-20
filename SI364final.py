@@ -237,6 +237,10 @@ def get_google_data(place):
     # rating = (data_son['results'][0]['rating'])
     # location = (data_son['results'][0]['vicinity'])
 
+def make_shell_context():
+    return dict( app=app, db=db, Song=Song, Artist=Artist, Album=Album)
+# Add function use to manager
+manager.add_command("shell", Shell(make_context=make_shell_context))
 
 #######################
 ###### VIEW FXNS ######
